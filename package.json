@@ -1,0 +1,29 @@
+{
+  "name": "react-ks",
+  "version": "1.0.0",
+  "description": "Kick-start your next full-stack React application with React-Kickstart!",
+  "main": "index.js",
+  "bin": {
+    "rks": "./bin/global-action.js"
+  },
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jason-heinowitz/react-ks.git"
+  },
+  "author": "Jason Heinowitz",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jason-heinowitz/react-ks/issues"
+  },
+  "homepage": "https://github.com/jason-heinowitz/react-ks#readme",
+  "preferGlobal": true,
+  "dependencies": {
+    "fs-extra": "^9.0.0"
+  }
+}
