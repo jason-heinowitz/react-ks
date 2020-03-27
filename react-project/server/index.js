@@ -4,7 +4,7 @@ const cookieParser = require('cookie-parser');
 const path = require('path');
 
 const app = express();
-const PORT = 8000;
+const PORT = 3000;
 
 app.use(cookieParser());
 app.use(bodyParser.json());
@@ -20,7 +20,7 @@ if (process.env.NODE_ENV === 'production') {
     res.sendFile(path.join(__dirname, '../index.html'));
   });
 
-  app.listen(3000); // listens on port 3000 -> http://localhost:3000/
+  app.listen(80); // listens on port 80 -> http://localhost/
 } else {
   app.listen(PORT, () => {
     console.log(`Listening on http://localhost:${PORT}`);
