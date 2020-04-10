@@ -1,10 +1,10 @@
-const express = require('express');
-const bodyParser = require('body-parser');
-const cookieParser = require('cookie-parser');
-const path = require('path');
+import express from 'express';
+import bodyParser from 'body-parser';
+import cookieParser from 'cookie-parser';
+import path from 'path';
 
 const app = express();
-const PORT = 3000;
+const PORT = 5000;
 
 app.use(cookieParser());
 app.use(bodyParser.json());

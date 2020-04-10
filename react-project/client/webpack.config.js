@@ -1,5 +1,5 @@
 module.exports = {
-  entry: ['./inc/polyfills.js', './client/index.js'],
+  entry: ['./inc/polyfills.js', './src/index.js'],
   output: {
     path: __dirname,
     filename: './build/bundle.js',
@@ -11,10 +11,10 @@ module.exports = {
   },
   devtool: 'source-map',
   devServer: {
+    public: 'localhost:8080',
+    host: '0.0.0.0',
+    port: 3000,
     historyApiFallback: true,
-    proxy: {
-      '/proxy': 'http://localhost:3000',
-    },
   },
   module: {
     rules: [

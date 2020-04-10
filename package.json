@@ -1,6 +1,6 @@
 {
   "name": "react-ks",
-  "version": "1.0.0",
+  "version": "1.0.11",
   "description": "Kick-start your next full-stack React application with React-Kickstart!",
   "main": "index.js",
   "bin": {
@@ -21,9 +21,10 @@
   "bugs": {
     "url": "https://github.com/jason-heinowitz/react-ks/issues"
   },
-  "homepage": "https://github.com/jason-heinowitz/react-ks#readme",
+  "homepage": "https://github.com/jason-heinowitz/",
   "preferGlobal": true,
   "dependencies": {
+    "await-exec": "^0.1.2",
     "fs-extra": "^9.0.0"
   }
 }
