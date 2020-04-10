@@ -2,6 +2,8 @@ import express from 'express';
 import bodyParser from 'body-parser';
 import cookieParser from 'cookie-parser';
 import path from 'path';
+import process from 'process';
+import { exec } from 'child_process';
 
 const app = express();
 const PORT = 5000;
@@ -44,3 +46,7 @@ app.use((err, req, res, next) => {
 });
 
 module.exports = app;
+
+process.on('exit', () => {
+  exec('docker-compose down');
+});
