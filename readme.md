@@ -8,7 +8,7 @@ Jason Heinowitz
 
 ## How to use
 
-### `rks (location)`
+### `rks (location) [-d]`
 
   
-Bootstraps a React app in the destination/ folder name of your choice.
+Bootstraps a React app in the destination/ folder name of your choice. Use "-d" flag to bootstrap a Docker-based fullstack React application.

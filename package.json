@@ -1,6 +1,6 @@
 {
   "name": "react-ks",
-  "version": "1.0.12",
+  "version": "1.1.0",
   "description": "Kick-start your next full-stack React application with React-Kickstart!",
   "main": "index.js",
   "bin": {
