@@ -1,8 +1,7 @@
+import path from 'path';
 import express from 'express';
 import bodyParser from 'body-parser';
 import cookieParser from 'cookie-parser';
-import path from 'path';
-import process from 'process';
 
 const app = express();
 const PORT = 5000;
@@ -15,10 +14,10 @@ app.use(bodyParser.urlencoded({ extended: true }));
 if (process.env.NODE_ENV === 'production') {
   // statically serve everything in the build folder on the route '/build'
   app.use('/build', express.static(path.join(__dirname, '../build')));
-  // app.use('/emails/build', express.static(path.join(__dirname, '../build')));
+
   // serve index.html on the route '/'
   app.get('/*', (req, res) => {
-    res.sendFile(path.join(__dirname, '../index.html'));
+    res.sendFile(path.join(__dirname, '../build/index.html'));
   });
 
   app.listen(80); // listens on port 80 -> http://localhost/
@@ -41,7 +40,7 @@ app.use((err, req, res, next) => {
   // err MUST be in format:
   // { code: status code, message: message to user, log: message to server operator }
   console.log(err.log);
-  return res.status(err.code).json(err.message);
+  return res.status(err.code).json({ message: err.message });
 });
 
 module.exports = app;

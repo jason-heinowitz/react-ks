@@ -1,3 +1,5 @@
+const path = require('path');
+
 module.exports = {
   entry: ['./client/inc/polyfills.js', './client/src/index.js'],
   output: {
@@ -15,6 +17,8 @@ module.exports = {
     host: '0.0.0.0',
     port: 8080,
     historyApiFallback: true,
+    disableHostCheck: true,
+    contentBase: path.join(__dirname, 'build'),
   },
   module: {
     rules: [
