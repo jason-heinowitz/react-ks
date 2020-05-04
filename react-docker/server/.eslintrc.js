@@ -1,18 +1,15 @@
 module.exports = { 
   "root": true,
-  "extends": ["airbnb", "airbnb/hooks", "plugin:json/recommended"],
+  "extends": ["airbnb", "plugin:json/recommended", "plugin:@typescript-eslint/recommended"],
   "plugins": ["json"],
   "rules": {
     "no-console": "off",
     "func-names": "off",
   },
-  "parser": "babel-eslint",
+  "parser": "@typescript-eslint/parser",
   "parserOptions": {
     "ecmaVersion": 2018,
     "sourceType": "module",
-    "ecmaFeatures": {
-      "jsx": true
-    }
   },
   "env": {
     "es6": true,
