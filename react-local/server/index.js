@@ -3,7 +3,6 @@ import bodyParser from 'body-parser';
 import cookieParser from 'cookie-parser';
 import path from 'path';
 import process from 'process';
-import { exec } from 'child_process';
 
 const app = express();
 const PORT = 5000;
@@ -18,7 +17,7 @@ if (process.env.NODE_ENV === 'production') {
   app.use('/build', express.static(path.join(__dirname, '../build')));
   // app.use('/emails/build', express.static(path.join(__dirname, '../build')));
   // serve index.html on the route '/'
-  app.get('/', (req, res) => {
+  app.get('/*', (req, res) => {
     res.sendFile(path.join(__dirname, '../index.html'));
   });
 
@@ -46,7 +45,3 @@ app.use((err, req, res, next) => {
 });
 
 module.exports = app;
-
-process.on('exit', () => {
-  exec('docker-compose down');
-});
