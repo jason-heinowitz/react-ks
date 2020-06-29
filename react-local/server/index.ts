@@ -16,19 +16,20 @@ if (process.env.NODE_ENV === 'production') {
   app.use('/build', express.static(path.join(__dirname, '../build')));
 
   // serve index.html on the route '/'
-  app.get('/*', (req, res) => {
+  app.get('/*', (req: express.Request, res: express.Response) => {
     res.sendFile(path.join(__dirname, '../build/index.html'));
   });
 
   app.listen(80); // listens on port 80 -> http://localhost/
-} else {
+} else if (process.env.NODE_ENV === 'development') {
+  // do not listen if testing
   app.listen(PORT, () => {
     console.log(`Listening on http://localhost:${PORT}`);
   });
 }
 
 // catch all
-app.use('*', (req, res, next) => {
+app.use('*', (req: express.Request, res: express.Response, next: express.NextFunction) => {
   next({
     code: 404,
     message: 'Sorry - this resource cannot be found.',
@@ -36,11 +37,19 @@ app.use('*', (req, res, next) => {
   });
 });
 
-app.use((err, req, res, next) => {
+// structure if error in application
+interface NextError {
+  log: string;
+  code: number;
+  message: string;
+}
+
+app.use((err: NextError, req: express.Request, res: express.Response, next: express.NextFunction) => {
   // err MUST be in format:
   // { code: status code, message: message to user, log: message to server operator }
   console.log(err.log);
   return res.status(err.code).json({ message: err.message });
 });
 
+// export to expedite testing implementation
 module.exports = app;
