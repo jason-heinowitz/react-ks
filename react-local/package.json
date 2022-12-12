@@ -19,7 +19,7 @@
     "cookie-parser": "^1.4.5",
     "core-js": "^3.6.4",
     "cross-env": "^7.0.2",
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "regenerator-runtime": "^0.13.5"
